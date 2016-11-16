@@ -20,5 +20,7 @@ subroutine RT_prop
     write(*,"(A,2x,I4,2e16.6e3)")"it=",it,dipole_m,norm_m
   end do
 
+  call write_td_results
+
   return
 end subroutine RT_prop

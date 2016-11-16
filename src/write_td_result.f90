@@ -4,20 +4,17 @@
 ! https://opensource.org/licenses/mit-license.php   !
 !---------------------------------------------------!
 !-------10--------20--------30--------40--------50--------60--------70--------80--------90
-program main
-use global_variables
+subroutine write_td_results
+  use global_variables
   implicit none
+  integer :: it
 
-  write(*,'(A)')'Start qm1d'
-  call input
-  call mesh
 
-  call preparation_GS
-  call GS_CG
+  open(20,file="td_result.out")
+  do it = 0,Nt_iter
+    write(20,"999e26.16e3")it*dt,dipole_t(it),norm_t(it)
+  end do
+  close(20)
 
-!  stop
-  call preparation_RT
-  call RT_prop
-!
-
-end program main
+  return
+end subroutine write_td_results
