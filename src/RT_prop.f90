@@ -10,7 +10,7 @@ subroutine RT_prop
   integer :: it
 
   do it = 1,Nt_iter
-    call dt_eveolve(it)
+    call dt_evolve(it)
   end do
 
   return
