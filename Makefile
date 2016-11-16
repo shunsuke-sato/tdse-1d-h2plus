@@ -1,4 +1,4 @@
-FC = gfortran -O0 ## gfotran
+FC = gfortran -O2 ## gfotran
 
 LN = -llapack -lblas #other
 
@@ -9,7 +9,7 @@ SRC = $(shell cd src ;ls *.f90 ;cd ..)
 OBJ = $(SRC:.f90=.o)
 OBJ_dir = $(addprefix object/,$(OBJ))
 
-PROG = chain1d
+PROG = tdse
 
 $(PROG):global_variables.o $(OBJ)
 	$(FC) -o $(PROG) $(OBJ_dir) $(LN)
@@ -21,6 +21,6 @@ main.o:main.f90
 
 
 clean:
-	rm  -f  object/*.o  *.mod chain1d
+	rm  -f  object/*.o  *.mod tdse
 clean_complete:
-	rm  -f *~  */*~ */*/*~ object/*.o  */*.mod *.mod chain1d */#*
+	rm  -f *~  */*~ */*/*~ object/*.o  */*.mod *.mod tdse */#*
