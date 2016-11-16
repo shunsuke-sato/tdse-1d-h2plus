@@ -1,6 +1,0 @@
-subroutine dt_evolve(it)
-  use global_variables
-  implicit none
-  integer :: it
-
-end subroutine dt_evolve
