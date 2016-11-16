@@ -23,4 +23,4 @@ main.o:main.f90
 clean:
 	rm  -f  object/*.o  *.mod tdse
 clean_complete:
-	rm  -f *~  */*~ */*/*~ object/*.o  */*.mod *.mod tdse */#*
+	rm  -f *~  */*~ */*/*~ object/*.o  */*.mod *.mod tdse */#* *.out log.log
