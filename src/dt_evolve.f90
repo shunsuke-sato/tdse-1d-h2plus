@@ -8,14 +8,15 @@ subroutine dt_evolve(it)
   use global_variables
   implicit none
   integer,intent(in) :: it
-  integer :: iexp, Nexp=4
+  integer,parameter :: Nexp=4
+  integer :: iexp 
   complex(zp) :: zfact
 
 ! Propagator = Taylor expantions
   zfact = 1d0
+  ztmp_wfn=zwfn
   do iexp = 1,Nexp
     zfact = zfact*(-zI*dt)/dble(iexp)
-    ztmp_wfn=zwfn
     call zhpsi
     zwfn = zwfn + zfact*ztmp_hwfn
     ztmp_wfn = ztmp_hwfn
