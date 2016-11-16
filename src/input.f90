@@ -20,7 +20,7 @@ subroutine input
   Ncg = 2400
 ! TD
   T_calc = 20d0
-  dt = 0.01
+  dt = 0.001d0
   Nt_iter = aint(T_calc/dt)+1
 
   RT_mode='kick' ! kick or gs
