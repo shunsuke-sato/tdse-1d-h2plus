@@ -16,8 +16,8 @@ use global_variables
   call GS_CG
 
 !  stop
-!  call preparation_RT
-!  call RT_prop
+  call preparation_RT
+  call RT_prop
 !
 !  call write_results
 

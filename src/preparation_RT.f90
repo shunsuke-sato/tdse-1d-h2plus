@@ -9,7 +9,7 @@ subroutine preparation_RT
   implicit none
 
   allocate(zwfn(0:Nx,0:NR))
-
+  allocate(dipole_t(0:Nt_iter),norm_t(0:Nt_iter))
 !Initial condition
   zwfn = wfn ! GS wavefunction
 
