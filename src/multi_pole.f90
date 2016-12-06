@@ -4,7 +4,7 @@
 ! https://opensource.org/licenses/mit-license.php   !
 !---------------------------------------------------!
 !-------10--------20--------30--------40--------50--------60--------70--------80--------90
-subroutine multi_pole(dipole_m,norm_m)
+subroutine multi_pole(dipole_m,qd_pole_m,norm_m)
   use global_variables
   implicit none
 !  real(dp),intent(out) :: dipole_t ,norm_t
