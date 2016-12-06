@@ -15,10 +15,17 @@ subroutine preparation_RT
 !Initial condition
 !  zwfn = wfn ! GS wavefunction
 
-!momentum kick
+!!momentum kick
+!  do iy=0,NR
+!    do ix=0,Nx
+!      zwfn(ix,iy) = exp(zI*kick_mom*xn(ix))*wfn(ix,iy) 
+!    end do
+!  end do
+
+!!quadrupole kick
   do iy=0,NR
     do ix=0,Nx
-      zwfn(ix,iy) = exp(zI*kick_mom*xn(ix))*wfn(ix,iy) 
+      zwfn(ix,iy) = exp(zI*kick_mom*xn(ix)**2)*wfn(ix,iy) 
     end do
   end do
 
