@@ -4,30 +4,25 @@
 ! https://opensource.org/licenses/mit-license.php   !
 !---------------------------------------------------!
 !-------10--------20--------30--------40--------50--------60--------70--------80--------90
-subroutine preparation_RT
+subroutine quadrupole(qd_pole_m,norm_m)
   use global_variables
   implicit none
+!  real(dp),intent(out) :: dipole_t ,norm_t
+  real(dp) :: qd_pole_m, norm_m
   integer :: ix,iy
 
 
-  allocate(zwfn(0:Nx,0:NR))
-  allocate(dipole_t(0:Nt_iter),norm_t(0:Nt_iter),quadrupole_t(0:Nt_iter))
-!Initial condition
-!  zwfn = wfn ! GS wavefunction
-
-!!momentum kick
-!  do iy=0,NR
-!    do ix=0,Nx
-!      zwfn(ix,iy) = exp(zI*kick_mom*xn(ix))*wfn(ix,iy) 
-!    end do
-!  end do
-
-!!quadrupole kick
-  do iy=0,NR
-    do ix=0,Nx
-      zwfn(ix,iy) = exp(zI*kick_mom*xn(ix)**2)*wfn(ix,iy) 
+  qd_pole_m = 0d0; norm_m = 0d0
+  do iy = 0,NR
+    do ix = 0,Nx
+      qd_pole_m = qd_pole_m + Rn(iy)**2*abs(zwfn(ix,iy))**2
+      norm_m = norm_m + abs(zwfn(ix,iy))**2
     end do
   end do
 
+  qd_pole_m = qd_pole_m*dx*dr
+  norm_m = norm_m*dx*dr
+
+
   return
-end subroutine preparation_RT
+end subroutine quadrupole

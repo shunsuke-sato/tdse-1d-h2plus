@@ -31,7 +31,7 @@ module global_variables
   integer :: Nt_iter
   real(dp) :: T_calc,dt,kick_mom
   complex(zp),allocatable :: zwfn(:,:)
-  real(dp),allocatable :: dipole_t(:),norm_t(:)
+  real(dp),allocatable :: dipole_t(:),norm_t(:),quadrupole_t(:)
   real(dp) :: field_max,field_duration,field_omega
   real(dp) :: field_max_eV_per_AA,field_duration_fs,field_omega_eV
   real(dp),allocatable :: field_t(:)
