@@ -11,7 +11,8 @@ subroutine RT_prop
   integer :: it
 
   call dipole(dipole_m, norm_m)
-  dipole_t(0) = dipole_m; norm_t(0) = norm_m
+  call multi_pole(dipole_m, qd_pole_m, norm_m)
+  dipole_t(0) = dipole_m; quadrupole_t(0) = qd_pole_m; norm_t(0) = norm_m
   write(*,"(A,2x,I4,2e16.6e3)")"it=",0,dipole_m,norm_m
   do it = 1,Nt_iter
     call dt_evolve(it)
