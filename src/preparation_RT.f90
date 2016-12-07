@@ -22,10 +22,10 @@ subroutine preparation_RT
 !    end do
 !  end do
 
-!!quadrupole kick
+!!quadrupole kick for nuclei
   do iy=0,NR
     do ix=0,Nx
-      zwfn(ix,iy) = exp(zI*kick_mom*xn(ix)**2)*wfn(ix,iy) 
+      zwfn(ix,iy) = exp(zI*kick_mom*Rn(iy)**2)*wfn(ix,iy) 
     end do
   end do
 
